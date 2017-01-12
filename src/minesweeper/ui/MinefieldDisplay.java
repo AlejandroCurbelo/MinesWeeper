@@ -4,6 +4,6 @@ import minesweeper.model.Minefield;
 
 public interface MinefieldDisplay {
     
-    void display(Minefield board);
+    void display(Minefield minefield);
     
 }

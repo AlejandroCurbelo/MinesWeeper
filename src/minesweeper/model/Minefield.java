@@ -3,36 +3,28 @@ package minesweeper.model;
 public class Minefield {
     
     private final int size;
-    private final Cell[][] board;
+    private final boolean[][] board;
 
     public Minefield(int size) {
         this.size=size;
-        this.board = new MineImpl[size][size];
+        this.board = new boolean[size][size];
         setMines();
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public boolean[][] getBoard() {
+        return board;
+    }
+
     private void setMines() {
-        for (int i = 0; i < size; i++) {
-            board[(int) (Math.random() * size)][(int) (Math.random() * size)] = new MineImpl(true);
-        }
+        for (int i = 0; i < size; i++) 
+            board[(int) (Math.random() * size)][(int) (Math.random() * size)]=true;
     }
-    
-    private class MineImpl implements Cell {
 
-        private final boolean mine;
-        
-        public MineImpl() {
-            mine=false;
-        }
-        
-        public MineImpl(boolean type) {
-            mine=type;
-        }
-
-        @Override
-        public boolean isMine() {
-            return mine;
-        }
+    public boolean isMine(int x, int y) {
+        return this.board[x][y];
     }
-    
 }

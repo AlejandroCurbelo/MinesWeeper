@@ -1,25 +1,21 @@
 package minesweeper.ui.swing;
 
-import javax.swing.JPanel;
-import minesweeper.model.Cell;
+import javax.swing.JButton;
 import minesweeper.ui.CellDisplay;
 
-public class SwingCellDisplay extends JPanel implements CellDisplay {
+public class SwingCellDisplay extends JButton implements CellDisplay{
 
-    private boolean shown;
-    private final Cell cell;
+    private int x;
+    private int y;
 
-    public SwingCellDisplay(Cell cell) {
-        this.shown = false;
-        this.cell=cell;
+    public SwingCellDisplay(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public void display(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    @Override
-    public void display(Cell cell) {
-        shown=true;
-    }
-
-    public boolean isShown() {
-        return shown;
-    }
 }
